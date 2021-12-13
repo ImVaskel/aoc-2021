@@ -1,4 +1,4 @@
-//package gay.vaskel.aoc2021
+package gay.vaskel.aoc2021
 
 import gay.vaskel.aoc2021.days.*
 

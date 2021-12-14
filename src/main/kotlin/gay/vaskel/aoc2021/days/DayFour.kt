@@ -26,11 +26,11 @@ class DayFour: BaseDay {
             lst.map { it.split("\\s".toRegex()) }
                 .map { i -> i.filter { e -> e.isNotBlank() }.map { e -> e.toInt() } }
         }
-        val boards = mutableListOf<BingoBoard>()
+        val boards: MutableList<BingoBoard> = mutableListOf()
 
         for (entry in ints) {
-            val columns = mutableListOf<List<Int>>()
-            val rows = mutableListOf<List<Int>>()
+            val columns: MutableList<List<Int>> = mutableListOf()
+            val rows: MutableList<List<Int>> = mutableListOf()
             for (i in entry.first().indices) {
                 val column = mutableListOf<Int>()
                 val row = mutableListOf<Int>()

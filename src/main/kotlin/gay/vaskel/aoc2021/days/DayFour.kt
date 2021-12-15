@@ -9,7 +9,7 @@ class DayFour: BaseDay {
         fun getSum(nums: List<Int>): Int {
             return rows.sumOf { lst ->
                 lst.sumOf {
-                    if (!nums.contains(it)) it else 0 as Int
+                    if (!nums.contains(it)) it else 0
                 }
             }
         }

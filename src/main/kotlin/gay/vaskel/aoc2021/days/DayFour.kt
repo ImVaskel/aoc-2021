@@ -72,8 +72,7 @@ class DayFour: BaseDay {
         return nums[idx] * board.getSum(nums.subList(0, idx+1))
     }
     override fun part2(): Number {
-        val valid = getWinningBoards()
-        val (idx, board) = valid.last()
+        val (idx, board) = getWinningBoards().last()
         return nums[idx] * board.getSum(nums.subList(0, idx+1))
     }
 }

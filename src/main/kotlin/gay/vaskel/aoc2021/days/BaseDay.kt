@@ -38,15 +38,13 @@ interface BaseDay {
     }
 
     fun solution() {
-        val timeOne: Double = measureTimeMillis { part1() } / 1000.toDouble()
-        val timeTwo = measureTimeMillis { part2() } / 1000.toDouble()
+        val timeOne = measureTimeMillis { part1() }
+        val timeTwo = measureTimeMillis { part2() }
 
         println("Part 1:")
-        println(part1())
-        println("(took $timeOne seconds)")
-        println("Part 2: ")
-        println(part2())
-        println("(took $timeTwo seconds)")
+        println("${part1()} [took $timeOne ms]")
+        println("Part 2:")
+        println("${part2()} [took $timeTwo ms]")
     }
 
     fun part1(): Number

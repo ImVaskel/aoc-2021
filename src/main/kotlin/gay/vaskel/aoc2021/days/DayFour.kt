@@ -2,6 +2,8 @@ package gay.vaskel.aoc2021.days
 
 class DayFour: BaseDay {
     data class BingoBoard(val rows: List<List<Int>>, val columns: List<List<Int>>) {
+        var hasWon = false
+
         fun checkWinner(nums: List<Int>): Boolean {
             return columns.any { it.intersect(nums).size == 5 } || rows.any { it.intersect(nums).size == 5 }
         }
@@ -53,15 +55,12 @@ class DayFour: BaseDay {
 
         val validBoards: MutableList<Pair<Int, BingoBoard>> = mutableListOf()
         for (i in 0 until nums.count()) {
-            val valids = mutableListOf<BingoBoard>()
             for (board in boards) {
-                // get concurrent mod if removed while iterating, so we have to remove after iterating
-                if (board.checkWinner(nums.subList(0, i+1))) {
+                if (!board.hasWon && board.checkWinner(nums.subList(0, i+1))) {
                     validBoards.add(Pair(i, board))
-                    valids.add(board)
+                    board.hasWon = true
                 }
             }
-            boards.removeAll(valids)
         }
 
         return validBoards

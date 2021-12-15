@@ -61,7 +61,7 @@ class DayFour: BaseDay {
                     valids.add(board)
                 }
             }
-            boards.removeIf { it in valids }
+            boards.removeAll(valids)
         }
 
         return validBoards

@@ -2,7 +2,10 @@ package gay.vaskel.aoc2021.days
 
 import java.io.File
 import kotlin.system.measureTimeMillis
+import kotlin.time.DurationUnit
+import kotlin.time.ExperimentalTime
 import kotlin.time.measureTime
+import kotlin.time.measureTimedValue
 
 interface BaseDay {
     val day: Int
@@ -37,14 +40,15 @@ interface BaseDay {
             .map(String::trim)
     }
 
+    @OptIn(ExperimentalTime::class)
     fun solution() {
-        val timeOne = measureTimeMillis { part1() }
-        val timeTwo = measureTimeMillis { part2() }
+        val (part1, timePart1) = measureTimedValue { part1() }
+        val (part2, timePart2) = measureTimedValue { part2() }
 
         println("Part 1:")
-        println("${part1()} [took $timeOne ms]")
+        println("$part1 [took ${timePart1.toInt(DurationUnit.MILLISECONDS)} ms]")
         println("Part 2:")
-        println("${part2()} [took $timeTwo ms]")
+        println("$part2 [took ${timePart2.toInt(DurationUnit.MILLISECONDS)} ms]")
     }
 
     fun part1(): Number
